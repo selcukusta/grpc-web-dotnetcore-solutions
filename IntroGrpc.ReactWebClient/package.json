@@ -1,0 +1,40 @@
+{
+  "name": "introgrpc.reactwebclient",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.5.0",
+    "@testing-library/user-event": "^7.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.1",
+    "google-protobuf": "^3.6.1",
+    "grpc-web": "^1.0.7"
+  },
+  "scripts": {
+    "create-public-directory": "mkdir -p src/public",
+    "create-hello-proto": "protoc greet.proto --js_out=import_style=commonjs:./src/public --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./src/public --proto_path=../IntroGrpc.CoreServer/Protos/",
+    "create-stream-proto": "protoc photo.proto --js_out=import_style=commonjs:./src/public --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./src/public --proto_path=../IntroGrpc.CoreServer/Protos/",
+    "proto": "npm run create-public-directory && npm run create-hello-proto && npm run create-stream-proto && ./eslint-fix.sh src/public",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: grpc-vs
+spec:
+  hosts:
+    - "YOUR-HOST.com"
+  gateways:
+    - grpc-gw
+  tls:
+    - match:
+        - port: 443
+          sniHosts:
+            - YOUR-HOST.com
+      route:
+        - destination:
+            host: grpc-server

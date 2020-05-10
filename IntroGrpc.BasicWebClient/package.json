@@ -1,0 +1,16 @@
+{
+    "name": "introgrpc.basicwebclient",
+    "dependencies": {
+        "google-protobuf": "^3.6.1",
+        "grpc-web": "^1.0.0"
+    },
+    "devDependencies": {
+        "webpack": "^4.16.5",
+        "webpack-cli": "^3.1.0"
+    },
+    "scripts": {
+        "create-proto": "protoc greet.proto --js_out=import_style=commonjs:./source --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./source --proto_path=../IntroGrpc.Server/Protos/",
+        "build-dist": "npx webpack source/client.js",
+        "run-server": "http-server -o index.html"
+    }
+}

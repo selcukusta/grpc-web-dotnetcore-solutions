@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option csharp_namespace = "IntroGrpc.Server";
+
+package photo;
+
+// The greeting service definition.
+service Photo {
+  // Sends a greeting
+  rpc SayHello (PhotoRequest) returns (stream PhotoReply);
+}
+
+// The request message containing the user's name.
+message PhotoRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings.
+message PhotoReply {
+  bytes message = 1;
+}
